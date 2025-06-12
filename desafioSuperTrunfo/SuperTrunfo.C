@@ -43,9 +43,9 @@ int main(){
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf(" %d",&PontosTurC1);
 
-    // Calculando Densidade Populacional e PIB per Capita da  Carta 2
-    DensidadePopulacionalC2 = (float)PopulacaoC2 / AreaC1;// float para garantir o type casting
-    PibPerCapitaC2 = PibC2 / PopulacaoC2;
+    // Calculando Densidade Populacional e PIB per Capita da  Carta 1
+    DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;// float para garantir o type casting
+    PibPerCapitaC1 = PibC1 / PopulacaoC1;
 
 
     //inserindo os dados da carta 2
