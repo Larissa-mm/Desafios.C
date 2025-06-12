@@ -14,7 +14,7 @@ int main(){
 
 
 
-    //declaração variaveis da carta 2
+    //declaração variaveís da carta 2
     char estadoC2 ;// letra  de A a H dos oito estados
     char CodigoC2[5];//variavel para armazenar Codigo da carta
     char NomeCidadeC2[50];//variavel para armazenar nome da cidade
@@ -38,14 +38,15 @@ int main(){
     scanf(" %d",&PopulacaoC1);
     printf("Digite a área da cidade em Km²: ");
     scanf(" %f",&AreaC1);
-    printf("Digite o PIB da cidade em reais: ");
+    printf("Digite o PIB da cidade em  bilhões reais: ");
     scanf(" %f",&PibC1);
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf(" %d",&PontosTurC1);
 
     // Calculando Densidade Populacional e PIB per Capita da  Carta 1
     DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;// float para garantir o type casting
-    PibPerCapitaC1 = PibC1 / PopulacaoC1;
+    PibPerCapitaC1 = (PibC1 * 1000000000.0) / PopulacaoC1;/* Multiplica o PIB por 1 bilhão  para ajustar 
+    as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
 
 
     //inserindo os dados da carta 2
@@ -60,14 +61,15 @@ int main(){
     scanf(" %d",&PopulacaoC2);
     printf("Digite a área da cidade em Km²: ");
     scanf(" %f",&AreaC2);
-    printf("Digite o PIB da cidade em reais: ");
+    printf("Digite o PIB da cidade em bilhões de reais: ");
     scanf(" %f",&PibC2);
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf(" %d",&PontosTurC2);
 
      // Calculando Densidade Populacional e PIB per Capita da  Carta 2
-    DensidadePopulacionalC2 = PopulacaoC2 / AreaC2;
-    PibPerCapitaC2 = PibC2  / PopulacaoC2;
+    DensidadePopulacionalC2 =(float) PopulacaoC2 / AreaC2;//float para garantir o type casting
+    PibPerCapitaC2 = (PibC2 * 1000000000.0) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
+    as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
 
 
 
