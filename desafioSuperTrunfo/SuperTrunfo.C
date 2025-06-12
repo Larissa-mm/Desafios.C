@@ -9,6 +9,10 @@ int main(){
     float AreaC1;//armazena dados da area  da cidade em km²
     float PibC1;//armazena o pib da cidade
     int PontosTurC1;//armazena quantidade de pontos turisticos
+    float DensidadePopulacionalC1; //variável para densidade populacional
+    float PibPerCapitaC1; //variável para PIB per capita
+
+
 
     //declaração variaveis da carta 2
     char estadoC2 ;// letra  de A a H dos oito estados
@@ -18,6 +22,9 @@ int main(){
     float AreaC2;//armazena dados da area  da cidade em km²
     float PibC2;//armazena o pib da cidade
     int PontosTurC2;//armazena quantidade de pontos turisticos
+    float DensidadePopulacionalC2; //variável para densidade populacional
+    float PibPerCapitaC2; //variável para PIB per capita
+
 
     //inserindo os dados da carta 1
     printf("--- Insira os dados da Carta 1 ---\n");
