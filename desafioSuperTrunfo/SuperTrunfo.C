@@ -71,6 +71,7 @@ int main(){
     PibPerCapitaC2 = (PibC2 * 1000000000.0) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
     as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
 
+    printf("\n"); // Linha em branco para melhor visualização
 
 
     //exibindo os dados da carta 1 na tela 
