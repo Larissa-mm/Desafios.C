@@ -1,7 +1,7 @@
 # Desafios.C
 # Projeto de Programação C: Módulos da Disciplina Introdução à Programação de Computadores (IPC)
 
-Este repositório consolida os projetos desenvolvidos para a disciplina de **Introdução à Programação de Computadores (IPC)**, ministrada pelo **Professor Sérgio Cardoso** na graduação de **Sistemas de Informação** da **Universidade Estácio**. O objetivo principal da disciplina é fortalecer a lógica de programação, a resolução de problemas e a aplicação de boas práticas no desenvolvimento de software através de desafios práticos em C.
+Este repositório consolida os Trabalhos desenvolvidos para a disciplina de **Introdução à Programação de Computadores (IPC)**, tutorada pelo **Professor Sérgio Cardoso** na graduação de **Sistemas de Informação** da **Universidade Estácio**. O objetivo principal da disciplina é fortalecer a lógica de programação, a resolução de problemas e a aplicação de boas práticas no desenvolvimento de software através de desafios práticos em C.
 
 A disciplina IPC foca em:
 

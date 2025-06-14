@@ -112,34 +112,39 @@ int main(){
     
 
 
-     // --- Comparação de Cartas (Usando Operador Ternário ? : para a Mensagem ,substituindo a utilização de if-else) ---
+   // --- Comparação de Cartas (Usando apenas operadores de comparação) ---
     printf("\n--- Comparação de Cartas ---\n");
 
+    // Array com as mensagens de vitória.Índice 0 para "falso", 1 para "verdadeiro".
+    char* mensagensVitoria[] = {"Carta 2 venceu", "Carta 1 venceu"};
+
     // Comparação de População (maior vence)
-    printf("População: %s (%d)\n", (PopulacaoC1 > PopulacaoC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
-     PopulacaoC1 > PopulacaoC2);
+    int vitoriaC1_Pop = PopulacaoC1 > PopulacaoC2;
+    printf("População: %s (%d)\n", mensagensVitoria[vitoriaC1_Pop], vitoriaC1_Pop);
 
     // Comparação de Área (maior vence)
-    printf("Área: %s (%d)\n", (AreaC1 > AreaC2 ? "Carta 1 venceu" : "Carta 2 venceu"), AreaC1 > AreaC2);
+    int vitoriaC1_Area = AreaC1 > AreaC2;
+    printf("Área: %s (%d)\n", mensagensVitoria[vitoriaC1_Area], vitoriaC1_Area);
 
     // Comparação de PIB (maior vence)
-    printf("PIB: %s (%d)\n", (PibC1 > PibC2 ? "Carta 1 venceu" : "Carta 2 venceu"), PibC1 > PibC2);
+    int vitoriaC1_Pib = PibC1 > PibC2;
+    printf("PIB: %s (%d)\n", mensagensVitoria[vitoriaC1_Pib], vitoriaC1_Pib);
 
     // Comparação de Pontos Turísticos (maior vence)
-    printf("Pontos Turísticos: %s (%d)\n", (PontosTurC1 > PontosTurC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
-     PontosTurC1 > PontosTurC2);
+    int vitoriaC1_Pontos = PontosTurC1 > PontosTurC2;
+    printf("Pontos Turísticos: %s (%d)\n", mensagensVitoria[vitoriaC1_Pontos], vitoriaC1_Pontos);
 
     // Comparação de Densidade Populacional (MENOR valor vence)
-    printf("Densidade Populacional: %s (%d)\n", (DensidadePopulacionalC1 < DensidadePopulacionalC2 ? 
-    "Carta 1 venceu" : "Carta 2 venceu"), DensidadePopulacionalC1 < DensidadePopulacionalC2);
+    int vitoriaC1_Densidade = DensidadePopulacionalC1 < DensidadePopulacionalC2;
+    printf("Densidade Populacional: %s (%d)\n", mensagensVitoria[vitoriaC1_Densidade], vitoriaC1_Densidade);
 
     // Comparação de PIB per Capita (maior vence)
-    printf("PIB per Capita: %s (%d)\n", (PibPerCapitaC1 > PibPerCapitaC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
-    PibPerCapitaC1 > PibPerCapitaC2);
+    int vitoriaC1_PibPerCapita = PibPerCapitaC1 > PibPerCapitaC2;
+    printf("PIB per Capita: %s (%d)\n", mensagensVitoria[vitoriaC1_PibPerCapita], vitoriaC1_PibPerCapita);
 
     // Comparação de Super Poder (maior vence)
-    printf("Super Poder: %s (%d)\n", (SuperPoderC1 > SuperPoderC2 ? "Carta 1 venceu" : "Carta 2 venceu"), 
-    SuperPoderC1 > SuperPoderC2);
+    int vitoriaC1_SuperPoder = SuperPoderC1 > SuperPoderC2;
+    printf("Super Poder: %s (%d)\n", mensagensVitoria[vitoriaC1_SuperPoder], vitoriaC1_SuperPoder);
 
     return 0;
 }
