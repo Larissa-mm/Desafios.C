@@ -110,5 +110,36 @@ int main(){
     printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacionalC2);
     printf("PIB per Capita: %.2f reais\n", PibPerCapitaC2);
     
+
+
+     // --- Comparação de Cartas (Usando Operador Ternário para a Mensagem) ---
+    printf("\n--- Comparação de Cartas ---\n");
+
+    // Comparação de População (maior vence)
+    printf("População: %s (%d)\n", (PopulacaoC1 > PopulacaoC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
+     PopulacaoC1 > PopulacaoC2);
+
+    // Comparação de Área (maior vence)
+    printf("Área: %s (%d)\n", (AreaC1 > AreaC2 ? "Carta 1 venceu" : "Carta 2 venceu"), AreaC1 > AreaC2);
+
+    // Comparação de PIB (maior vence)
+    printf("PIB: %s (%d)\n", (PibC1 > PibC2 ? "Carta 1 venceu" : "Carta 2 venceu"), PibC1 > PibC2);
+
+    // Comparação de Pontos Turísticos (maior vence)
+    printf("Pontos Turísticos: %s (%d)\n", (PontosTurC1 > PontosTurC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
+     PontosTurC1 > PontosTurC2);
+
+    // Comparação de Densidade Populacional (MENOR valor vence)
+    printf("Densidade Populacional: %s (%d)\n", (DensidadePopulacionalC1 < DensidadePopulacionalC2 ? 
+    "Carta 1 venceu" : "Carta 2 venceu"), DensidadePopulacionalC1 < DensidadePopulacionalC2);
+
+    // Comparação de PIB per Capita (maior vence)
+    printf("PIB per Capita: %s (%d)\n", (PibPerCapitaC1 > PibPerCapitaC2 ? "Carta 1 venceu" : "Carta 2 venceu"),
+    PibPerCapitaC1 > PibPerCapitaC2);
+
+    // Comparação de Super Poder (maior vence)
+    printf("Super Poder: %s (%d)\n", (SuperPoderC1 > SuperPoderC2 ? "Carta 1 venceu" : "Carta 2 venceu"), 
+    SuperPoderC1 > SuperPoderC2);
+
     return 0;
 }
