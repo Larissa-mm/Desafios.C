@@ -37,7 +37,7 @@ int main(){
     printf("Digite o nome da Cidade(por favor digite sem espaços):");
     scanf(" %s",NomeCidadeC1);
     printf("Digite o número de habitantes da cidade:");
-    scanf(" %d",&PopulacaoC1);
+    scanf(" %lu",&PopulacaoC1);
     printf("Digite a área da cidade em Km²: ");
     scanf(" %f",&AreaC1);
     printf("Digite o PIB da cidade em  bilhões reais: ");
@@ -47,7 +47,7 @@ int main(){
 
     // Calculando Densidade Populacional e PIB per Capita da  Carta 1
     DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;// float para garantir o type casting
-    PibPerCapitaC1 = (PibC1 * 1000000000.0) / PopulacaoC1;/* Multiplica o PIB por 1 bilhão  para ajustar 
+    PibPerCapitaC1 = (PibC1 * 1000000000.0f) / PopulacaoC1;/* Multiplica o PIB por 1 bilhão  para ajustar 
     as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
      // Cálculo do Super Poder para Carta 1
     // conversão para float para garantir a soma correta
@@ -63,7 +63,7 @@ int main(){
     printf("Digite o nome da Cidade(por favor digite sem espaços):");
     scanf(" %s",NomeCidadeC2);
     printf("Digite o número de habitantes da cidade:");
-    scanf(" %d",&PopulacaoC2);
+    scanf(" %lu",&PopulacaoC2);
     printf("Digite a área da cidade em Km²: ");
     scanf(" %f",&AreaC2);
     printf("Digite o PIB da cidade em bilhões de reais: ");
@@ -73,7 +73,7 @@ int main(){
 
      // Calculando Densidade Populacional e PIB per Capita da  Carta 2
     DensidadePopulacionalC2 =(float) PopulacaoC2 / AreaC2;//float para garantir o type casting
-    PibPerCapitaC2 = (PibC2 * 1000000000.0) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
+    PibPerCapitaC2 = (PibC2 * 1000000000.0f) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
     as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
     // Cálculo do Super Poder para Carta 2
     // conversão para float para garantir a soma correta
