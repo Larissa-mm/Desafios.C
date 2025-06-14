@@ -112,7 +112,7 @@ int main(){
     
 
 
-     // --- Comparação de Cartas (Usando Operador Ternário para a Mensagem) ---
+     // --- Comparação de Cartas (Usando Operador Ternário ? : para a Mensagem ,substituindo a utilização de if-else) ---
     printf("\n--- Comparação de Cartas ---\n");
 
     // Comparação de População (maior vence)
