@@ -103,20 +103,20 @@ int main(){
     printf("Estado: %c\n",estadoC2);
     printf("Código: %s\n",CodigoC2);
     printf("Nome da Cidade: %s\n",NomeCidadeC2);      
-    printf("População: %d\n",PopulacaoC2); t
+    printf("População: %d\n",PopulacaoC2); 
     printf("Área: %.2f Km²\n",AreaC2); 
     printf("PIB: %.2f bilhoes de reais\n",PibC2);
     printf("Número de Pontos Turísticos: %d\n",PontosTurC2);
     printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacionalC2);
     printf("PIB per Capita: %.2f reais\n", PibPerCapitaC2);
     
-    printf("--- Comparação de Cartas (Atributo: Pontos Turisticos) ---\n\n");
+    printf("--- Comparação de Cartas (Atributo: PIB) ---\n\n");
     // Exibe os valores das cartas para o atributo comparado
-    printf("Carta 1 - %s:\n", NomeCidadeC1,PontosTurC1);
-    printf("Carta 2 - %s:\n", NomeCidadeC2,PontosTurC2);
+    printf("Carta 1 - %s:\n", NomeCidadeC1,PibC1);
+    printf("Carta 2 - %s:\n", NomeCidadeC2,PibC2);
     printf("\n"); // Linha em branco para melhor visualização
 
-    if (PontosTurC1 > PontosTurC2) {
+    if (PibC1 > PibC2) {
          printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
     }
     else
