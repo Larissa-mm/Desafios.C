@@ -11,7 +11,7 @@ int main(){
     int PontosTurC1;//armazena quantidade de pontos turisticos
     float DensidadePopulacionalC1; //variável para densidade populacional
     float PibPerCapitaC1; //variável para PIB per capita
-    float SuperPoderC1;//variavel para armazenar o poder da carta 1
+ 
 
 
     //declaração variaveís da carta 2
@@ -24,14 +24,14 @@ int main(){
     int PontosTurC2;//armazena quantidade de pontos turisticos
     float DensidadePopulacionalC2; //variável para densidade populacional
     float PibPerCapitaC2; //variável para PIB per capita
-    float SuperPoderC2;//variavel para armazenar o poder da carta 2
+   
 
 
 
     //inserindo os dados da carta 1
     printf("--- Insira os dados da Carta 1 ---\n");
     printf("Digite o Estado (A-H): ");
-    scanf(" %c",&estadoC1);
+    scanf(" %s",&estadoC1);
     printf("Digite o código da carta(letra do estado + número de 01 a 04) :");
     scanf(" %s",CodigoC1);
     printf("Digite o nome da Cidade(por favor digite sem espaços):");
@@ -49,15 +49,13 @@ int main(){
     DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;// float para garantir o type casting
     PibPerCapitaC1 = (PibC1 * 1000000000.0f) / PopulacaoC1;/* Multiplica o PIB por 1 bilhão  para ajustar 
     as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
-     // Cálculo do Super Poder para Carta 1
-    // conversão para float para garantir a soma correta
-    SuperPoderC1 = (float)PopulacaoC1 + AreaC1 + PibC1 + (float)PontosTurC1 + PibPerCapitaC1 + 
-    (1.0f / DensidadePopulacionalC1);
+    
+   
 
     //inserindo os dados da carta 2
     printf("--- Insira os dados da Carta 2 ---\n");
     printf("Digite o Estado (A-H): ");
-    scanf(" %c",&estadoC2);
+    scanf(" %s",&estadoC2);
     printf("Digite o código da carta(letra do estado + número de 01 a 04) :");
     scanf(" %s",CodigoC2);
     printf("Digite o nome da Cidade(por favor digite sem espaços):");
@@ -75,17 +73,15 @@ int main(){
     DensidadePopulacionalC2 =(float) PopulacaoC2 / AreaC2;//float para garantir o type casting
     PibPerCapitaC2 = (PibC2 * 1000000000.0f) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
     as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
-    // Cálculo do Super Poder para Carta 2
-    // conversão para float para garantir a soma correta
-    SuperPoderC2 = (float)PopulacaoC2 + AreaC2 + PibC2+ (float)PontosTurC2 + PibPerCapitaC2 + 
-    (1.0f / DensidadePopulacionalC2);
+ 
+  
 
     printf("\n"); // Linha em branco para melhor visualização
 
 
     //exibindo os dados da carta 1 na tela 
     printf("--carta 1:--\n");
-    printf("Estado: %c\n",estadoC1);
+    printf("Estado: %s\n",estadoC1);
     printf("Código: %s\n",CodigoC1);
     printf("Nome da Cidade: %s\n",NomeCidadeC1);      
     printf("População: %d\n",PopulacaoC1);
@@ -100,7 +96,7 @@ int main(){
 
     //exibindo os dados da carta 2 na tela
     printf("--carta 2:--\n");
-    printf("Estado: %c\n",estadoC2);
+    printf("Estado: %s\n",estadoC2);
     printf("Código: %s\n",CodigoC2);
     printf("Nome da Cidade: %s\n",NomeCidadeC2);      
     printf("População: %d\n",PopulacaoC2); 
@@ -119,8 +115,7 @@ int main(){
     if (PibC1 > PibC2) {
          printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
     }
-    else
-    {
+    else {
          printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
     }
     
