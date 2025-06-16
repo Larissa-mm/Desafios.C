@@ -34,7 +34,7 @@ int main() {
     printf("Digite o Estado (sigla com 2 letras): ");
     scanf("%2s", estadoC1); 
 
-    printf("Digite o código da carta(letra do estado + número de 01 a 04: ");
+    printf("Digite o código da carta(Sigla do estado + número de 01 a 04:) ");
     scanf("%4s", CodigoC1);
 
     // Limpando o buffer ANTES de ler o nome com espaços 
@@ -90,7 +90,7 @@ int main() {
     printf("\n--- Insira os dados da Carta 2 ---\n");
     printf("Digite o Estado (sigla com 2 letras): ");
     scanf("%2s", estadoC2);
-    printf("Digite o código da carta(letra do estado + número de 01 a 04): ");
+    printf("Digite o código da carta(Sigla do estado + número de 01 a 04): ");
     scanf("%4s", CodigoC2);
     
     //  Limpando o buffer denovo
@@ -203,6 +203,9 @@ int main() {
             else if (DensidadePopulacionalC2 < DensidadePopulacionalC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
             else printf("Resultado: Empate!\n");
             break;
+        default:
+          printf("Ocorreu um erro inesperado no menu.\n");
+          break;
     }
     return 0;
 }
