@@ -79,6 +79,7 @@ Para compilar e executar este programa, você precisará de um compilador C, com
 ## Exemplo de Uso (Nível Mestre)
 
 A seguir, um exemplo de como interagir com o programa na sua versão final:
+
 --- Insira os dados da Carta 1 ---
 Digite a sigla do Estado (ex: SP): SP
 Digite o nome da Cidade: Sao Paulo
