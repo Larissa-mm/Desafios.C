@@ -1,123 +1,208 @@
 #include <stdio.h>
+#include <string.h> // Adicionado para usar strcspn
+//Nesse nivel busquei cercar os erros que o usuário possa cometer.
+// Função auxiliar para limpar o "lixo" do teclado. Essencial.
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
-int main(){
-    //declaração de variaveís  da carta 1
-    char estadoC1[2] ;// para armazenar as letras de A a H dos oito estados
-    char CodigoC1[5];//variavel para armazenar Codigo da carta
-    char NomeCidadeC1 [50];//variavel para armazenar nome da cidade
-    int PopulacaoC1;// para armazenar dados de população
-    float AreaC1;//armazena dados da area  da cidade em km²
-    float PibC1;//armazena o pib da cidade
-    int PontosTurC1;//armazena quantidade de pontos turisticos
-    float DensidadePopulacionalC1; //variável para densidade populacional
-    float PibPerCapitaC1; //variável para PIB per capita
- 
+int main() {
+    // --- DECLARAÇÃO DE VARIÁVEIS ---
+    char estadoC1[3];
+    char CodigoC1[5];
+    char NomeCidadeC1[50];
+    int PopulacaoC1;
+    float AreaC1;
+    float PibC1;
+    int PontosTurC1;
+    float DensidadePopulacionalC1;
 
+    char estadoC2[3];
+    char CodigoC2[5];
+    char NomeCidadeC2[50];
+    int PopulacaoC2;
+    float AreaC2;
+    float PibC2;
+    int PontosTurC2;
+    float DensidadePopulacionalC2;
 
-    //declaração variaveís da carta 2
-    char estadoC2[2] ;// letra  de A a H dos oito estados
-    char CodigoC2[5];//variavel para armazenar Codigo da carta
-    char NomeCidadeC2[50];//variavel para armazenar nome da cidade
-    int PopulacaoC2;// para armazenar dados de população
-    float AreaC2;//armazena dados da area  da cidade em km²
-    float PibC2;//armazena o pib da cidade
-    int PontosTurC2;//armazena quantidade de pontos turisticos
-    float DensidadePopulacionalC2; //variável para densidade populacional
-    float PibPerCapitaC2; //variável para PIB per capita
-   
+    int resultadoScan; 
 
-
-
-    //inserindo os dados da carta 1
+    // --- INSERINDO OS DADOS DA CARTA 1 ---
     printf("--- Insira os dados da Carta 1 ---\n");
-    printf("Digite o Estado (A-H): ");
-    scanf(" %s",&estadoC1);
-    printf("Digite o código da carta(letra do estado + número de 01 a 04) :");
-    scanf(" %s",CodigoC1);
-    printf("Digite o nome da Cidade(por favor digite sem espaços):");
-    scanf(" %s",NomeCidadeC1);
-    printf("Digite o número de habitantes da cidade:");
-    scanf(" %d",&PopulacaoC1);
-    printf("Digite a área da cidade em Km²: ");
-    scanf(" %f",&AreaC1);
-    printf("Digite o PIB da cidade em  bilhões reais: ");
-    scanf(" %f",&PibC1);
-    printf("Digite a quantidade de pontos turísticos da cidade: ");
-    scanf(" %d",&PontosTurC1);
+    printf("Digite o Estado (sigla com 2 letras): ");
+    scanf("%2s", estadoC1); 
 
-    // Calculando Densidade Populacional e PIB per Capita da  Carta 1
-    DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;// float para garantir o type casting
-    PibPerCapitaC1 = (PibC1 * 1000000000.0f) / PopulacaoC1;/* Multiplica o PIB por 1 bilhão  para ajustar 
-    as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
+    printf("Digite o código da carta: ");
+    scanf("%4s", CodigoC1);
+
+    // Limpando o buffer ANTES de ler o nome com espaços 
+    limparBuffer(); 
     
-   
+    // Usando fgets para ler o nome da cidade
+    printf("Digite o nome da Cidade: ");
+    fgets(NomeCidadeC1, 50, stdin);
+    NomeCidadeC1[strcspn(NomeCidadeC1, "\n")] = '\0'; // Remove o '\n' do final
 
-    //inserindo os dados da carta 2
-    printf("--- Insira os dados da Carta 2 ---\n");
-    printf("Digite o Estado (A-H): ");
-    scanf(" %s",&estadoC2);
-    printf("Digite o código da carta(letra do estado + número de 01 a 04) :");
-    scanf(" %s",CodigoC2);
-    printf("Digite o nome da Cidade(por favor digite sem espaços):");
-    scanf(" %s",NomeCidadeC2);
-    printf("Digite o número de habitantes da cidade:");
-    scanf(" %d",&PopulacaoC2);
-    printf("Digite a área da cidade em Km²: ");
-    scanf(" %f",&AreaC2);
-    printf("Digite o PIB da cidade em bilhões de reais: ");
-    scanf(" %f",&PibC2);
-    printf("Digite a quantidade de pontos turísticos da cidade: ");
-    scanf(" %d",&PontosTurC2);
+    // Validação da População
+    do {
+        printf("Digite o número de habitantes da cidade: ");
+        resultadoScan = scanf("%d", &PopulacaoC1);
+        if (resultadoScan != 1 || PopulacaoC1 <= 0) {
+            printf("Erro! Digite um número inteiro e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PopulacaoC1 <= 0);
 
-     // Calculando Densidade Populacional e PIB per Capita da  Carta 2
-    DensidadePopulacionalC2 =(float) PopulacaoC2 / AreaC2;//float para garantir o type casting
-    PibPerCapitaC2 = (PibC2 * 1000000000.0f) / PopulacaoC2; /* Multiplica o PIB por 1 bilhão  para ajustar 
-    as unidades e garantir que o calculo per capita seja correto em relação ao valor em reais por habitante.*/
- 
-  
-
-    printf("\n"); // Linha em branco para melhor visualização
-
-
-    //exibindo os dados da carta 1 na tela 
-    printf("--carta 1:--\n");
-    printf("Estado: %s\n",estadoC1);
-    printf("Código: %s\n",CodigoC1);
-    printf("Nome da Cidade: %s\n",NomeCidadeC1);      
-    printf("População: %d\n",PopulacaoC1);
-    printf("Área: %.2f Km²\n",AreaC1);
-    printf("PIB: %.2f bilhoes de reais\n",PibC1);
-    printf("Número de Pontos Turísticos: %d\n",PontosTurC1);
-    printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacionalC1);
-    printf("PIB per Capita: %.2f reais\n", PibPerCapitaC1);
-
-
-    printf("\n"); // Linha em branco para melhor visualização
-
-    //exibindo os dados da carta 2 na tela
-    printf("--carta 2:--\n");
-    printf("Estado: %s\n",estadoC2);
-    printf("Código: %s\n",CodigoC2);
-    printf("Nome da Cidade: %s\n",NomeCidadeC2);      
-    printf("População: %d\n",PopulacaoC2); 
-    printf("Área: %.2f Km²\n",AreaC2); 
-    printf("PIB: %.2f bilhoes de reais\n",PibC2);
-    printf("Número de Pontos Turísticos: %d\n",PontosTurC2);
-    printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacionalC2);
-    printf("PIB per Capita: %.2f reais\n", PibPerCapitaC2);
+    // Validação da Área
+    do {
+        printf("Digite a área da cidade em Km²: ");
+        resultadoScan = scanf("%f", &AreaC1);
+        if (resultadoScan != 1 || AreaC1 <= 0) {
+            printf("Erro! Digite um número decimal e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || AreaC1 <= 0);
     
-    printf("--- Comparação de Cartas (Atributo: PIB) ---\n\n");
-    // Exibe os valores das cartas para o atributo comparado
-    printf("Carta 1 - %s:\n", NomeCidadeC1,PibC1);
-    printf("Carta 2 - %s:\n", NomeCidadeC2,PibC2);
-    printf("\n"); // Linha em branco para melhor visualização
+    // Validação do PIB
+    do {
+        printf("Digite o PIB da cidade em bilhões reais: ");
+        resultadoScan = scanf("%f", &PibC1);
+        if (resultadoScan != 1 || PibC1 <= 0) {
+            printf("Erro! Digite um número decimal e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PibC1 <= 0);
 
-    if (PibC1 > PibC2) {
-         printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+    // Validação dos Pontos Turísticos
+    do {
+        printf("Digite a quantidade de pontos turísticos da cidade: ");
+        resultadoScan = scanf("%d", &PontosTurC1);
+        if (resultadoScan != 1 || PontosTurC1 < 0) { 
+            printf("Erro! Digite um número inteiro e não-negativo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PontosTurC1 < 0);
+
+
+    // --- INSERINDO OS DADOS DA CARTA 2 ---
+    printf("\n--- Insira os dados da Carta 2 ---\n");
+    printf("Digite o Estado (sigla com 2 letras): ");
+    scanf("%2s", estadoC2);
+    printf("Digite o código da carta: ");
+    scanf("%4s", CodigoC2);
+    
+    //  Limpando o buffer denovo
+    limparBuffer();
+    
+    // Usando fgets para a segunda cidade 
+    printf("Digite o nome da Cidade: ");
+    fgets(NomeCidadeC2, 50, stdin);
+    NomeCidadeC2[strcspn(NomeCidadeC2, "\n")] = '\0';
+
+    // Repetindo as validações para a Carta 2
+    do {
+        printf("Digite o número de habitantes da cidade: ");
+        resultadoScan = scanf("%d", &PopulacaoC2);
+        if (resultadoScan != 1 || PopulacaoC2 <= 0) {
+            printf("Erro! Digite um número inteiro e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PopulacaoC2 <= 0);
+
+    do {
+        printf("Digite a área da cidade em Km²: ");
+        resultadoScan = scanf("%f", &AreaC2);
+        if (resultadoScan != 1 || AreaC2 <= 0) {
+            printf("Erro! Digite um número decimal e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || AreaC2 <= 0);
+
+    do {
+        printf("Digite o PIB da cidade em bilhões reais: ");
+        resultadoScan = scanf("%f", &PibC2);
+        if (resultadoScan != 1 || PibC2 <= 0) {
+            printf("Erro! Digite um número decimal e positivo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PibC2 <= 0);
+    
+    do {
+        printf("Digite a quantidade de pontos turísticos da cidade: ");
+        resultadoScan = scanf("%d", &PontosTurC2);
+        if (resultadoScan != 1 || PontosTurC2 < 0) {
+            printf("Erro! Digite um número inteiro e não-negativo.\n");
+            limparBuffer();
+        }
+    } while (resultadoScan != 1 || PontosTurC2 < 0);
+
+
+    //CÁLCULOS
+    DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;
+    DensidadePopulacionalC2 = (float)PopulacaoC2 / AreaC2;
+
+    // --- LÓGICA DO NÍVEL AVENTUREIRO COM MENU ---
+    int opcao;
+    
+    // Validação da opção do menu
+    do {
+        printf("\n\n--- MENU DE COMPARAÇÃO ---\n");
+        printf("Escolha o atributo para a batalha:\n");
+        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. Densidade Populacional (menor vence)\n");
+        printf("Digite sua opção: ");
+        
+        resultadoScan = scanf("%d", &opcao);
+        if (resultadoScan != 1 || opcao < 1 || opcao > 5) {
+            printf("Erro! Opção inválida. Tente novamente.\n");
+            limparBuffer();
+            resultadoScan = 0; // Força a repetição do loop
+        }
+    } while (resultadoScan != 1);
+
+    switch (opcao) {
+        //opções para o usuario
+        case 1:
+            printf("\n--- Atributo: População ---\n");
+            printf("Carta 1 (%s): %d\n", NomeCidadeC1, PopulacaoC1);
+            printf("Carta 2 (%s): %d\n", NomeCidadeC2, PopulacaoC2);
+            if (PopulacaoC1 > PopulacaoC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+            else if (PopulacaoC2 > PopulacaoC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
+            else printf("Resultado: Empate!\n");
+            break;
+        case 2:
+            printf("\n--- Atributo: Área ---\n");
+            printf("Carta 1 (%s): %.2f Km²\n", NomeCidadeC1, AreaC1);
+            printf("Carta 2 (%s): %.2f Km²\n", NomeCidadeC2, AreaC2);
+            if (AreaC1 > AreaC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+            else if (AreaC2 > AreaC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
+            else printf("Resultado: Empate!\n");
+            break;
+        case 3:
+            printf("\n--- Atributo: PIB ---\n");
+            printf("Carta 1 (%s): R$ %.2f bilhões\n", NomeCidadeC1, PibC1);
+            printf("Carta 2 (%s): R$ %.2f bilhões\n", NomeCidadeC2, PibC2);
+            if (PibC1 > PibC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+            else if (PibC2 > PibC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
+            else printf("Resultado: Empate!\n");
+            break;
+        case 4:
+            printf("\n--- Atributo: Pontos Turísticos ---\n");
+            printf("Carta 1 (%s): %d\n", NomeCidadeC1, PontosTurC1);
+            printf("Carta 2 (%s): %d\n", NomeCidadeC2, PontosTurC2);
+            if (PontosTurC1 > PontosTurC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+            else if (PontosTurC2 > PontosTurC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
+            else printf("Resultado: Empate!\n");
+            break;
+        case 5:
+            printf("\n--- Atributo: Densidade Populacional ---\n");
+            printf("Carta 1 (%s): %.2f hab/Km²\n", NomeCidadeC1, DensidadePopulacionalC1);
+            printf("Carta 2 (%s): %.2f hab/Km²\n", NomeCidadeC2, DensidadePopulacionalC2);
+            if (DensidadePopulacionalC1 < DensidadePopulacionalC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
+            else if (DensidadePopulacionalC2 < DensidadePopulacionalC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
+            else printf("Resultado: Empate!\n");
+            break;
     }
-    else {
-         printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-    }
-    
     return 0;
 }
