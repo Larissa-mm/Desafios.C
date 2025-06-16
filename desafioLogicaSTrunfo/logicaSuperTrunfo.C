@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h> // Adicionado para usar strcspn
 
-//BUSCANDO CERCAR ERROS E TORNAR O CÓDIGO MAIS ROBUSTO UTILIZEI  ESTRUTURA DE CONTROLE DO-WHILE 
+//BUSCANDO CERCAR ERROS E TORNAR O CÓDIGO MAIS ROBUSTO UTILIZEI ESTRUTURA DE CONTROLE DO-WHILE 
 // Função auxiliar para limpar o "lixo" do teclado. Essencial.
 void limparBuffer() {
     int c;
@@ -35,7 +35,7 @@ int main() {
     printf("Digite o Estado (sigla com 2 letras): ");
     scanf("%2s", estadoC1); 
 
-    printf("Digite o código da carta(Sigla do estado + número de 01 a 04:) ");
+    printf("Digite o código da carta(Sigla do estado + número de 01 a 04): ");
     scanf("%4s", CodigoC1);
 
     // Limpando o buffer ANTES de ler o nome com espaços 
@@ -144,10 +144,9 @@ int main() {
     DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;
     DensidadePopulacionalC2 = (float)PopulacaoC2 / AreaC2;
 
-   
-    //----NÍVEL MESTRE------  
-   
-    int opcao1, opcao2, resultadoScan;
+    
+    //----NÍVEL MESTRE------
+    int opcao1, opcao2;
     
     // --- Escolha do PRIMEIRO atributo ---
     do {
@@ -216,7 +215,7 @@ int main() {
     }
 
     char* vencedor2 = (opcao2 == 5) ? (valorAttr2_C1 < valorAttr2_C2 ? NomeCidadeC1 : NomeCidadeC2) : (valorAttr2_C1 > valorAttr2_C2 ? NomeCidadeC1 : NomeCidadeC2);
-     if (valorAttr2_C1 == valorAttr2_C2) {
+    if (valorAttr2_C1 == valorAttr2_C2) {
         printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Empate\n", nomeAttr2, valorAttr2_C1, valorAttr2_C2);
     } else {
         printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Vencedor: %s\n", nomeAttr2, valorAttr2_C1, valorAttr2_C2, vencedor2);
@@ -229,6 +228,7 @@ int main() {
 
     printf("Soma Carta 1 (%s): %.2f\n", NomeCidadeC1, somaC1);
     printf("Soma Carta 2 (%s): %.2f\n", NomeCidadeC2, somaC2);
+    
     //Utilizei emojis pra deixar o resultado mais bonito para o usuário
     if (somaC1 > somaC2) {
         printf("\n🎉 VENCEDOR DA RODADA: Carta 1 (%s)!\n", NomeCidadeC1);
@@ -237,4 +237,6 @@ int main() {
     } else {
         printf("\n🏁 A RODADA TERMINOU EM EMPATE!\n");
     }
+    
+    return 0;
 }
