@@ -14,7 +14,7 @@ int main(){
     //Loop  for para a torre
     for (int i = 1; i <= MOVIMENTOS_TORRE; i++)
     {
-        printf("Direita/n");
+        printf("Direita\n");
     }
     contador = 0; 
 
@@ -22,7 +22,7 @@ int main(){
     //Loop do-while para o Bispo
     do
     {
-        printf("Cima Direita n/");
+        printf("Cima Direita \n");
         contador++;//incremento
     } while (contador< MOVIMENTOS_BISPO);
     contador = 0; 
@@ -32,20 +32,11 @@ int main(){
     //Loop while para a Rainha
     while (contador < MOVIMENTOS_RAINHA)
     {
-        printf("Esquerda/n");
+        printf("Esquerda\n");
         contador++; // incremento
     }
-
     
     
-
-
-
-
-
-
-
-
 
 
 
