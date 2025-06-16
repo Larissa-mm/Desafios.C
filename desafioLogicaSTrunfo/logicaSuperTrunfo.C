@@ -203,6 +203,7 @@ int main() {
 
     // --- Exibição dos Resultados ---
     printf("\n\n--- BATALHA FINAL ---\n");
+    printf("⚔️  CARTA 1: %s  vs.  CARTA 2: %s  ⚔️\n\n", NomeCidadeC1, NomeCidadeC2);
     printf("Atributos escolhidos: %s e %s\n\n", nomeAttr1, nomeAttr2);
 
     // Exibindo valores e vencedor de cada atributo (usando operador ternário)
