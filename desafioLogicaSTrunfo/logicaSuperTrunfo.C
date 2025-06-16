@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h> // Adicionado para usar strcspn
-//Nesse nivel busquei cercar os erros que o usuário possa cometer.
+
+//BUSCANDO CERCAR ERROS E TORNAR O CÓDIGO MAIS ROBUSTO UTILIZEI  ESTRUTURA DE CONTROLE DO-WHILE 
 // Função auxiliar para limpar o "lixo" do teclado. Essencial.
 void limparBuffer() {
     int c;
@@ -143,69 +144,97 @@ int main() {
     DensidadePopulacionalC1 = (float)PopulacaoC1 / AreaC1;
     DensidadePopulacionalC2 = (float)PopulacaoC2 / AreaC2;
 
-    // --- LÓGICA DO NÍVEL AVENTUREIRO COM MENU ---
-    int opcao;
+   
+    //----NÍVEL MESTRE------  
+   
+    int opcao1, opcao2, resultadoScan;
     
-    // Validação da opção do menu
+    // --- Escolha do PRIMEIRO atributo ---
     do {
-        printf("\n\n--- MENU DE COMPARAÇÃO ---\n");
-        printf("Escolha o atributo para a batalha:\n");
-        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. Densidade Populacional (menor vence)\n");
+        printf("\n\n--- ESCOLHA O PRIMEIRO ATRIBUTO ---\n");
+        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. Densidade Populacional\n");
         printf("Digite sua opção: ");
-        
-        resultadoScan = scanf("%d", &opcao);
-        if (resultadoScan != 1 || opcao < 1 || opcao > 5) {
+        resultadoScan = scanf("%d", &opcao1);
+        if (resultadoScan != 1 || opcao1 < 1 || opcao1 > 5) {
             printf("Erro! Opção inválida. Tente novamente.\n");
             limparBuffer();
+            resultadoScan = 0;
+        }
+    } while (resultadoScan != 1);
+    limparBuffer(); // Limpa o buffer para a próxima leitura
+
+    // --- Escolha do SEGUNDO atributo (Menu Dinâmico) ---
+    do {
+        printf("\n\n--- ESCOLHA O SEGUNDO ATRIBUTO ---\n");
+        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. Densidade Populacional\n");
+        printf("Digite sua opção: ");
+        resultadoScan = scanf("%d", &opcao2);
+        if (resultadoScan != 1 || opcao2 < 1 || opcao2 > 5) {
+            printf("Erro! Opção inválida. Tente novamente.\n");
+            limparBuffer();
+            resultadoScan = 0; 
+        } else if (opcao1 == opcao2) { // Garante que não seja o mesmo atributo
+            printf("Erro! Você não pode escolher o mesmo atributo duas vezes. Tente novamente.\n");
             resultadoScan = 0; // Força a repetição do loop
         }
     } while (resultadoScan != 1);
+    limparBuffer(); // Limpa o buffer final
 
-    switch (opcao) {
-        //opções para o usuario
-        case 1:
-            printf("\n--- Atributo: População ---\n");
-            printf("Carta 1 (%s): %d\n", NomeCidadeC1, PopulacaoC1);
-            printf("Carta 2 (%s): %d\n", NomeCidadeC2, PopulacaoC2);
-            if (PopulacaoC1 > PopulacaoC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
-            else if (PopulacaoC2 > PopulacaoC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-            else printf("Resultado: Empate!\n");
-            break;
-        case 2:
-            printf("\n--- Atributo: Área ---\n");
-            printf("Carta 1 (%s): %.2f Km²\n", NomeCidadeC1, AreaC1);
-            printf("Carta 2 (%s): %.2f Km²\n", NomeCidadeC2, AreaC2);
-            if (AreaC1 > AreaC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
-            else if (AreaC2 > AreaC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-            else printf("Resultado: Empate!\n");
-            break;
-        case 3:
-            printf("\n--- Atributo: PIB ---\n");
-            printf("Carta 1 (%s): R$ %.2f bilhões\n", NomeCidadeC1, PibC1);
-            printf("Carta 2 (%s): R$ %.2f bilhões\n", NomeCidadeC2, PibC2);
-            if (PibC1 > PibC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
-            else if (PibC2 > PibC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-            else printf("Resultado: Empate!\n");
-            break;
-        case 4:
-            printf("\n--- Atributo: Pontos Turísticos ---\n");
-            printf("Carta 1 (%s): %d\n", NomeCidadeC1, PontosTurC1);
-            printf("Carta 2 (%s): %d\n", NomeCidadeC2, PontosTurC2);
-            if (PontosTurC1 > PontosTurC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
-            else if (PontosTurC2 > PontosTurC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-            else printf("Resultado: Empate!\n");
-            break;
-        case 5:
-            printf("\n--- Atributo: Densidade Populacional ---\n");
-            printf("Carta 1 (%s): %.2f hab/Km²\n", NomeCidadeC1, DensidadePopulacionalC1);
-            printf("Carta 2 (%s): %.2f hab/Km²\n", NomeCidadeC2, DensidadePopulacionalC2);
-            if (DensidadePopulacionalC1 < DensidadePopulacionalC2) printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidadeC1);
-            else if (DensidadePopulacionalC2 < DensidadePopulacionalC1) printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidadeC2);
-            else printf("Resultado: Empate!\n");
-            break;
-        default:
-          printf("Ocorreu um erro inesperado no menu.\n");
-          break;
+    // --- Armazenando os valores e nomes dos atributos escolhidos ---
+    float valorAttr1_C1, valorAttr1_C2, valorAttr2_C1, valorAttr2_C2;
+    char nomeAttr1[30], nomeAttr2[30];
+
+    // Switch para o primeiro atributo
+    switch(opcao1) {
+        case 1: valorAttr1_C1 = PopulacaoC1; valorAttr1_C2 = PopulacaoC2; strcpy(nomeAttr1, "População"); break;
+        case 2: valorAttr1_C1 = AreaC1; valorAttr1_C2 = AreaC2; strcpy(nomeAttr1, "Área"); break;
+        case 3: valorAttr1_C1 = PibC1; valorAttr1_C2 = PibC2; strcpy(nomeAttr1, "PIB"); break;
+        case 4: valorAttr1_C1 = PontosTurC1; valorAttr1_C2 = PontosTurC2; strcpy(nomeAttr1, "Pontos Turísticos"); break;
+        case 5: valorAttr1_C1 = DensidadePopulacionalC1; valorAttr1_C2 = DensidadePopulacionalC2; strcpy(nomeAttr1, "Densidade"); break;
     }
-    return 0;
+
+    // Switch para o segundo atributo
+    switch(opcao2) {
+        case 1: valorAttr2_C1 = PopulacaoC1; valorAttr2_C2 = PopulacaoC2; strcpy(nomeAttr2, "População"); break;
+        case 2: valorAttr2_C1 = AreaC1; valorAttr2_C2 = AreaC2; strcpy(nomeAttr2, "Área"); break;
+        case 3: valorAttr2_C1 = PibC1; valorAttr2_C2 = PibC2; strcpy(nomeAttr2, "PIB"); break;
+        case 4: valorAttr2_C1 = PontosTurC1; valorAttr2_C2 = PontosTurC2; strcpy(nomeAttr2, "Pontos Turísticos"); break;
+        case 5: valorAttr2_C1 = DensidadePopulacionalC1; valorAttr2_C2 = DensidadePopulacionalC2; strcpy(nomeAttr2, "Densidade"); break;
+    }
+
+    // --- Exibição dos Resultados ---
+    printf("\n\n--- BATALHA FINAL ---\n");
+    printf("Atributos escolhidos: %s e %s\n\n", nomeAttr1, nomeAttr2);
+
+    // Exibindo valores e vencedor de cada atributo (usando operador ternário)
+    printf("--- Comparação Individual ---\n");
+    char* vencedor1 = (opcao1 == 5) ? (valorAttr1_C1 < valorAttr1_C2 ? NomeCidadeC1 : NomeCidadeC2) : (valorAttr1_C1 > valorAttr1_C2 ? NomeCidadeC1 : NomeCidadeC2);
+    if (valorAttr1_C1 == valorAttr1_C2) {
+        printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Empate\n", nomeAttr1, valorAttr1_C1, valorAttr1_C2);
+    } else {
+        printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Vencedor: %s\n", nomeAttr1, valorAttr1_C1, valorAttr1_C2, vencedor1);
+    }
+
+    char* vencedor2 = (opcao2 == 5) ? (valorAttr2_C1 < valorAttr2_C2 ? NomeCidadeC1 : NomeCidadeC2) : (valorAttr2_C1 > valorAttr2_C2 ? NomeCidadeC1 : NomeCidadeC2);
+     if (valorAttr2_C1 == valorAttr2_C2) {
+        printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Empate\n", nomeAttr2, valorAttr2_C1, valorAttr2_C2);
+    } else {
+        printf("%s: Carta 1 (%.2f) vs Carta 2 (%.2f) -> Vencedor: %s\n", nomeAttr2, valorAttr2_C1, valorAttr2_C2, vencedor2);
+    }
+
+    // --- Soma e Vencedor Final ---
+    printf("\n--- Soma e Resultado Final ---\n");
+    float somaC1 = valorAttr1_C1 + valorAttr2_C1;
+    float somaC2 = valorAttr1_C2 + valorAttr2_C2;
+
+    printf("Soma Carta 1 (%s): %.2f\n", NomeCidadeC1, somaC1);
+    printf("Soma Carta 2 (%s): %.2f\n", NomeCidadeC2, somaC2);
+    //Utilizei emojis pra deixar o resultado mais bonito para o usuário
+    if (somaC1 > somaC2) {
+        printf("\n🎉 VENCEDOR DA RODADA: Carta 1 (%s)!\n", NomeCidadeC1);
+    } else if (somaC2 > somaC1) {
+        printf("\n🎉 VENCEDOR DA RODADA: Carta 2 (%s)!\n", NomeCidadeC2);
+    } else {
+        printf("\n🏁 A RODADA TERMINOU EM EMPATE!\n");
+    }
 }
