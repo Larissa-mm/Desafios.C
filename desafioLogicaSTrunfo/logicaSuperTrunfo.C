@@ -34,7 +34,7 @@ int main() {
     printf("Digite o Estado (sigla com 2 letras): ");
     scanf("%2s", estadoC1); 
 
-    printf("Digite o código da carta: ");
+    printf("Digite o código da carta(letra do estado + número de 01 a 04: ");
     scanf("%4s", CodigoC1);
 
     // Limpando o buffer ANTES de ler o nome com espaços 
@@ -90,7 +90,7 @@ int main() {
     printf("\n--- Insira os dados da Carta 2 ---\n");
     printf("Digite o Estado (sigla com 2 letras): ");
     scanf("%2s", estadoC2);
-    printf("Digite o código da carta: ");
+    printf("Digite o código da carta(letra do estado + número de 01 a 04): ");
     scanf("%4s", CodigoC2);
     
     //  Limpando o buffer denovo
