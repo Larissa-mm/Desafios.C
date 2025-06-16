@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "SuperTrunfo.C": "cpp",
-        "logicaSuperTrunfo.C": "cpp"
+        "logicaSuperTrunfo.C": "cpp",
+        "Xadrez.C": "cpp"
     }
 }
