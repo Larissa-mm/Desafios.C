@@ -47,7 +47,7 @@ int main(){
     //variável para controlar o loop de fora.
     //inicia com o valor 0.
     int controleLoop = 0;
-    //o loop 'while' vai continuar rodando ENQUANTO a variável 'controle_do_loop' for 0.
+    //o loop 'while' vai continuar rodando ENQUANTO a variável 'controleLoop' for 0.
     while (controleLoop == 0) {
         // Imprime uma mensagem de início.
         printf("Iniciando movimento em L do Cavalo:\n");
