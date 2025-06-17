@@ -1,75 +1,98 @@
 #include <stdio.h>
 
-//Nível Novato
+//SEÇÃO DE FUNÇÕES RECURSIVAS (NÍVEL MESTRE)
+void moverTorreRecursivo(int passos_restantes) {
+    // Caso-Base: se não há mais passos, a função para.
+    if (passos_restantes <= 0) {
+        return;
+    }
+    // Ação: imprime o movimento.
+    printf("Direita\n");
+    // Chamada Recursiva: chama a si mesma com um passo a menos.
+    moverTorreRecursivo(passos_restantes - 1);
+}
+
+// Move o Bispo recursivamente na diagonal (Cima + Direita).
+// passos_restantes O número de movimentos que ainda faltam.
+void moverBispoRecursivo(int passos_restantes) {
+    if (passos_restantes <= 0) {
+        return;
+    }
+    printf("Cima\n");
+    printf("Direita\n");
+    moverBispoRecursivo(passos_restantes - 1);
+}
+//Move a Rainha recursivamente para a esquerda.
+// passos_restantes O número de movimentos que ainda faltam.
+void moverRainhaRecursivo(int passos_restantes) {
+    if (passos_restantes <= 0) {
+        return;
+    }
+    printf("Esquerda\n");
+    moverRainhaRecursivo(passos_restantes - 1);
+}
+ 
+//Função principal
 int main(){
     //Entrada de dados e constantes
-   const int MOVIMENTOS_TORRE = 5;
-   const int MOVIMENTOS_BISPO = 5;
-   const int MOVIMENTOS_RAINHA = 8;
+    const int PASSOS_TORRE = 5;
+    const int PASSOS_BISPO = 5;
+    const int PASSOS_RAINHA = 8;
+    const int TOTAL_PASSOS_CIMA_CAVALO = 2;
+    const int TOTAL_PASSOS_DIREITA_CAVALO = 1;
 
-    // Variáveis de contador que serão usadas nos loops while e do-while.
-    int contador = 0;
-
-    printf("--- Movimentos da Torre ---\n");
-    //Loop  for para a torre
-    for (int i = 1; i <= MOVIMENTOS_TORRE; i++)
-    {
-        printf("Direita\n");
-    }
-    contador = 0; 
-
-    printf("--- Movimentos do Bispo ---\n");
-    //Loop do-while para o Bispo
-    do
-    {
-        printf("Cima Direita \n");
-        contador++;//incremento
-    } while (contador< MOVIMENTOS_BISPO);
-    contador = 0; 
-
-
-    printf("--- Movimentos da Rainha ---\n");
-    //Loop while para a Rainha
-    while (contador < MOVIMENTOS_RAINHA)
-    {
-        printf("Esquerda\n");
-        contador++; // incremento
-    }
+    //RECURSIVIDADE: Movimentação da Torre, Bispo e Rainha
+     printf("\n--- Peças com Movimento Recursivo ---\n\n");
     
-    //---Nivel Aventureiro----
-    
-    printf("\n");//quebra de linha 
-    printf("---- Movimentos do Cavalo ----\n");
-    // Constantes para o movimento específico do Cavalo
-    const int PASSOS_PARA_BAIXO = 2;
-    const int PASSOS_PARA_ESQUERDA = 1; 
+    printf("Torre Recursiva (5 passos para a Direita):\n");
+    moverTorreRecursivo(PASSOS_TORRE);
 
-    //variável para controlar o loop de fora.
-    //inicia com o valor 0.
-    int controleLoop = 0;
-    //o loop 'while' vai continuar rodando ENQUANTO a variável 'controleLoop' for 0.
-    while (controleLoop == 0) {
-        // Imprime uma mensagem de início.
-        printf("Iniciando movimento em L do Cavalo:\n");
-        // Loop 'for' para os passos para baixo.
-        // Vai repetir o número de vezes definido em 'PASSOS_PARA_BAIXO'.
-        for (int i = 0; i < PASSOS_PARA_BAIXO; i++) {
-            printf("Baixo\n");
+    printf("\nBispo Recursivo (5 passos na diagonal Cima-Direita):\n");
+    moverBispoRecursivo(PASSOS_BISPO);
+
+    printf("\nRainha Recursiva (8 passos para a Esquerda):\n");
+    moverRainhaRecursivo(PASSOS_RAINHA);
+
+    //LOOPS COMPLEXOS: Movimentação do Cavalo
+    printf("\n\n--- Cavalo com Loop Complexo (2 p/ Cima, 1 p/ Direita) ---\n");
+    
+    // Variáveis para controlar os passos do movimento em "L"
+    int passos_cima = 0;
+    int passos_direita = 0;
+
+    // Loop com condição múltipla (operador OU ||)
+    for (int i = 0; passos_cima < TOTAL_PASSOS_CIMA_CAVALO || passos_direita < TOTAL_PASSOS_DIREITA_CAVALO; i++) {
+        // Primeiro, executa os movimentos para cima
+        if (passos_cima < TOTAL_PASSOS_CIMA_CAVALO) {
+            printf("Cima\n");
+            passos_cima++;
+        } 
+        // Depois que os movimentos para cima terminam, executa o para a direita
+        else if (passos_direita < TOTAL_PASSOS_DIREITA_CAVALO) {
+            printf("Direita\n");
+            passos_direita++;
+        }
+    }
+    //LOOPS ANINHADOS: Segunda implementação do Bispo
+    printf("\n\n--- Bispo com Loops Aninhados ---\n");
+    
+    // Loop mais externo: controla o número total de passos na diagonal.
+    for (int passo_atual = 0; passo_atual < PASSOS_BISPO; passo_atual++) {
+        printf("Passo Diagonal %d:\n", passo_atual + 1);
+        
+        // Loop interno para o movimento vertical (roda só uma vez)
+        int mov_vertical_feito = 0;
+        while (mov_vertical_feito == 0) {
+            printf("  Cima\n");
+            mov_vertical_feito = 1;
         }
 
-        //Loop 'for' para os passos para a esquerda.
-        for (int i = 0; i < PASSOS_PARA_ESQUERDA; i++) {
-            printf("Esquerda\n");
+        // Loop interno para o movimento horizontal (roda só uma vez)
+        int mov_horizontal_feito = 0;
+        while (mov_horizontal_feito == 0) {
+            printf("  Direita\n");
+            mov_horizontal_feito = 1;
         }
-
-        // Agora mudei o valor da variável de controle para 1.
-        // Isso vai fazer o loop 'while' parar de repetir.
-        controleLoop = 1; 
-
-    } // Fim do loop while.
-
-
-
-
-    return 0;
-} 
+    }
+    return 0 ;
+}
