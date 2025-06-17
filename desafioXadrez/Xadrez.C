@@ -1,6 +1,6 @@
 #include <stdio.h>
-
-//SEÇÃO DE FUNÇÕES RECURSIVAS (NÍVEL MESTRE)
+//NÍVEL MESTRE
+//SEÇÃO DE FUNÇÕES RECURSIVAS 
 void moverTorreRecursivo(int passos_restantes) {
     // Caso-Base: se não há mais passos, a função para.
     if (passos_restantes <= 0) {
